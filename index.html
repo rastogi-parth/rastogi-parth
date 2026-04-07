@@ -45,8 +45,8 @@ nav.scrolled{background:rgba(226,232,240,0.98);backdrop-filter:blur(16px);box-sh
 .section-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;margin-bottom:36px;color:var(--text);display:inline-block;position:relative;padding-bottom:8px}
 .section-title::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:2px}
 .hero-wrap{background:var(--bg)}
-.hero-section{padding:100px 24px 48px;max-width:1100px;margin:0 auto}
-.hero-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-md);border:1px solid var(--border);overflow:hidden;display:grid;grid-template-columns:320px 1fr;min-height:480px}
+.hero-section{padding:0;max-width:100%;margin:0}
+.hero-card{background:var(--card);border-radius:0;box-shadow:none;border:none;overflow:hidden;display:grid;grid-template-columns:320px 1fr;min-height:100vh}
 .hero-photo{background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 50%,#0369a1 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 24px;text-align:center;position:relative;overflow:hidden}
 .hero-photo::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);animation:float 7s ease-in-out infinite}
 .hero-photo::after{content:'';position:absolute;bottom:-50px;left:-50px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.03);animation:float 9s ease-in-out infinite reverse}
@@ -60,7 +60,13 @@ nav.scrolled{background:rgba(226,232,240,0.98);backdrop-filter:blur(16px);box-sh
 .hero-photo-badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px;position:relative;z-index:1;padding:0 24px}
 .hero-photo-badges span{padding:3px 11px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;font-size:0.7rem;color:#fff;font-weight:500;transition:all 0.3s}
 .hero-photo-badges span:hover{background:rgba(255,255,255,0.22);transform:translateY(-1px)}
-.hero-content{padding:44px;display:flex;flex-direction:column;justify-content:center}
+/* Scroll indicator */
+.scroll-indicator{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:10;opacity:0.7;animation:scrollBounce 2s ease-in-out infinite}
+.scroll-indicator span{font-size:0.68rem;color:var(--text-muted);font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.scroll-indicator svg{width:20px;height:20px;stroke:var(--text-muted);fill:none;stroke-width:2}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+.hero-content{padding:44px;display:flex;flex-direction:column;justify-content:center;position:relative}
 .hero-badge{display:inline-block;padding:5px 14px;background:var(--primary-light);color:var(--primary-dark);border-radius:50px;font-size:0.73rem;font-weight:600;margin-bottom:18px;width:fit-content;letter-spacing:0.5px}
 .hero-content h1{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1.15;margin-bottom:10px;color:var(--text)}
 .hero-sub{font-size:1rem;color:var(--text-light);margin-bottom:5px}
@@ -198,8 +204,8 @@ nav.scrolled{background:rgba(226,232,240,0.98);backdrop-filter:blur(16px);box-sh
 .cert-popup-x:hover svg{stroke:#ef4444}
 .cert-popup-img{padding:20px;overflow-y:auto;text-align:center}
 .cert-popup-img img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--border)}
-.contact-wrap{background:#e2e8f0;margin-top:24px}
-.contact-section-inner{padding:72px 24px;max-width:1100px;margin:0 auto}
+.contact-wrap{background:#e2e8f0;margin-top:24px;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.contact-section-inner{padding:72px 24px;max-width:1100px;margin:0 auto;width:100%}
 .contact-inner{text-align:center}
 .contact-sub{color:var(--text-light);font-size:0.93rem;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:680px;margin:0 auto}
@@ -211,9 +217,9 @@ nav.scrolled{background:rgba(226,232,240,0.98);backdrop-filter:blur(16px);box-sh
 .contact-icon svg{width:19px;height:19px;stroke:var(--primary);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s}
 .contact-card-label{font-size:0.72rem;color:var(--text-muted);font-weight:500}
 .contact-card-value{font-weight:600;color:var(--text);font-size:0.82rem;word-break:break-all}
-footer{text-align:center;padding:28px 24px;font-size:0.77rem;color:var(--text-muted);background:#e2e8f0;border-top:1px solid #cbd5e1}
+footer{text-align:center;padding:20px 24px;font-size:0.77rem;color:var(--text-muted);background:#e2e8f0;border-top:none}
 @media(max-width:900px){
-.hero-card{grid-template-columns:1fr}.hero-photo{padding:0 0 24px 0}.photo-frame{width:100%;height:200px}.hero-content{padding:24px 20px}.hero-content h1{font-size:1.9rem}
+.hero-card{grid-template-columns:1fr;min-height:auto}.hero-photo{padding:0 0 24px 0}.photo-frame{width:100%;height:200px}.hero-content{padding:24px 20px}.hero-content h1{font-size:1.9rem}
 .stats-row{grid-template-columns:repeat(2,1fr)}.skills-grid,.edu-grid,.cert-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.about-info-grid{grid-template-columns:1fr}.affiliations-grid{grid-template-columns:repeat(2,1fr)}.section{padding:48px 20px}
 .alt-timeline::before{left:20px}.alt-item{width:100%!important;margin-left:0!important;padding-left:48px!important;padding-right:0!important;text-align:left!important}.alt-item:nth-child(odd) .alt-dot,.alt-item:nth-child(even) .alt-dot{left:12px!important;right:auto!important}.alt-item:nth-child(odd) .alt-top{justify-content:flex-start}.alt-duration{display:none}
 }
@@ -243,6 +249,7 @@ footer{text-align:center;padding:28px 24px;font-size:0.77rem;color:var(--text-mu
 <p class="hero-sub" style="font-size:0.9rem;">BioPharmaceuticals · Medical Devices · Global Submissions</p>
 <div class="hero-tags"><span>FDA</span><span>EU MDR</span><span>CTD/eCTD</span><span>ISO 13485</span><span>510(k)</span><span>cGMP</span><span>Veeva Vault RIM</span><span>eSTAR</span></div>
 <div class="hero-btns"><a href="#contact" class="btn btn-dark">Connect</a><a href="#experience" class="btn btn-outline">View Experience</a></div>
+<div class="scroll-indicator"><span>Scroll</span><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
 </div>
 </div></div></div>
 
