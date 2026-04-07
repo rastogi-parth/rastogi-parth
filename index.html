@@ -66,7 +66,8 @@ nav.scrolled{background:rgba(226,232,240,0.98);backdrop-filter:blur(16px);box-sh
 .scroll-indicator svg{width:20px;height:20px;stroke:var(--text-muted);fill:none;stroke-width:2}
 @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-.hero-content{padding:44px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-content{padding:44px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:#fff}
+.hero-bg-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:url('bg-healthcare.png') center bottom/cover no-repeat;opacity:0.5;pointer-events:none}
 .hero-badge{display:inline-block;padding:5px 14px;background:var(--primary-light);color:var(--primary-dark);border-radius:50px;font-size:0.73rem;font-weight:600;margin-bottom:18px;width:fit-content;letter-spacing:0.5px}
 .hero-content h1{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1.15;margin-bottom:10px;color:var(--text)}
 .hero-sub{font-size:1rem;color:var(--text-light);margin-bottom:5px}
@@ -243,6 +244,8 @@ footer{text-align:center;padding:20px 24px;font-size:0.77rem;color:var(--text-mu
 <div class="hero-photo-badges"><span>RAPS Member</span><span>MS Reg. Affairs · NEU</span></div>
 </div>
 <div class="hero-content">
+<div class="hero-bg-overlay"></div>
+<div style="position:relative;z-index:1;">
 <div class="hero-badge">Regulatory Affairs & Quality Assurance</div>
 <h1>Parth Rastogi</h1>
 <p class="hero-sub">MS Regulatory Affairs · Northeastern University</p>
@@ -250,6 +253,7 @@ footer{text-align:center;padding:20px 24px;font-size:0.77rem;color:var(--text-mu
 <div class="hero-tags"><span>FDA</span><span>EU MDR</span><span>CTD/eCTD</span><span>ISO 13485</span><span>510(k)</span><span>cGMP</span><span>Veeva Vault RIM</span><span>eSTAR</span></div>
 <div class="hero-btns"><a href="#contact" class="btn btn-dark">Connect</a><a href="#experience" class="btn btn-outline">View Experience</a></div>
 <div class="scroll-indicator"><span>Scroll</span><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
 </div>
 </div></div></div>
 
